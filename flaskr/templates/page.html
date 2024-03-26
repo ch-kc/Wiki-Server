@@ -1,0 +1,21 @@
+{% extends "main.html" %}
+
+{% block title %} 
+{{page_name.replace(".txt", "").replace("-", " ").replace("_", " ")}}
+{% endblock %}
+
+{% block content %}
+
+<h3> Retro Video Game </h3> <p> {{page_name.replace(".txt", "").replace("-", " ").replace("_", " ")}} </p>
+
+<h3> Description </h3> <p> {{text_from_page}} </p> 
+
+<h3> Related </h3> 
+<p>
+    {% for title in related_titles %}
+    <li>
+        <a href = "/pages/{{title}}">{{title.replace(".txt", "").replace("-", " ").replace("_", " ")}}</a>
+    </li>
+    {% endfor %}
+</p>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "main.html" %}
+
+{% block title %}
+Upload 
+{% endblock %}
+
+{% block content %}
+<center>
+<h3>Upload your file here!</h3>
+<form action = "/uploader" method = "POST" 
+enctype = "multipart/form-data">
+<input type = "file" name = "file" />
+<input type = "submit"/>
+</center>
+{% endblock %}

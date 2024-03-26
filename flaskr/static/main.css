@@ -1,0 +1,69 @@
+/* @import "https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"; */
+/* This is where my CSS will go! */
+
+body {
+    color: rgb(0, 0, 0);
+    background-color: rgb(247, 247, 247);
+}
+
+.search-bar {
+    float: right;
+}
+  
+/* Hidden list */
+.search-list {
+    display: none;
+    position: absolute;
+    background-color: #f6f6f6;
+    min-width: 190px;
+    border: 1px solid  rgb(140, 0, 255);
+    z-index: 1;
+}
+  
+/* Links inside the dropdown */
+.search-list a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+  
+/* Color of selected item when hovering*/
+.search-list a:hover {background-color: rgb(217, 170, 255)}
+  
+.show {display:block;} 
+*{
+    font-family: 'Times New Roman', Times, serif;
+}
+
+p {
+    font-size: larger;
+}
+
+h2 {
+    background-color: #a69dff;
+}
+
+.topnav {
+    overflow: hidden;
+    background-color: #333;
+}
+
+.topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.topnav a.active {
+    background-color: #a69dff;
+    color: white;
+}

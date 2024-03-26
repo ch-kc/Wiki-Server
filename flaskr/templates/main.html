@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang = "en">
+
+<title>
+    Retro Video Game Wiki
+</title>
+
+<head>
+    <link rel="stylesheet" href="/static/main.css" />
+        </nav>
+            {% if current_user.is_active %}
+                <a class="active" href="/">Home</a>
+                <strong> | </strong>
+                <a href="/pages">Pages</a>
+                <strong> | </strong>
+                <a href="/about">About</a>
+                <strong> | </strong>
+                <a href="/upload">Upload</a>
+                <strong> | </strong>
+                <a href="/logout">Logout</a>
+                <strong> | </strong>
+                {{ current_user.name }}
+            {% else %} 
+                <a class="active" href="/">Home</a>
+                <strong> | </strong>
+                <a href="/pages">Pages</a>
+                <strong> | </strong>
+                <a href="/about">About</a>
+                <strong> | </strong>
+                <a href="/signin">Sign In</a>
+                <strong> | </strong>
+                <a href="/signup">Sign Up</a>
+            {% endif %} 
+        </nav>
+
+        <div class="search-bar">
+            <form action="/submit">
+                <input type="text" placeholder="Search.." onclick="show_list()" id="user-input" onkeyup="filter_list()">
+                <input name="form" type="submit" value="Enter"/>
+                    <div id="search-list-input" class="search-list">
+                        {% for page in page_names %}
+                            <a href = "/pages/{{page}}">{{page.replace(".txt", "").replace("-", " ").replace("_", " ")}}</a>
+                        {% endfor %}
+                    </div>
+            </form>
+        </div>
+
+        <script>
+            function show_list() {
+                document.getElementById("search-list-input").classList.toggle("show");
+            }
+           
+            function filter_list() {
+                var input, filter, i;
+                input = document.getElementById("user-input");
+                filter = input.value.toUpperCase();
+                second_div = document.getElementById("search-list-input");
+                element = second_div.getElementsByTagName("a");
+                for (i = 0; i < element.length; i++) {
+                    title = element[i].textContent || element[i].innerText;
+                    if (title.toUpperCase().indexOf(filter) > -1) {
+                        element[i].style.display = "";
+                    }
+                    else {
+                        element[i].style.display = "none";
+                    }
+                }
+            }
+        </script>
+     
+    <center>
+        <h2>✰{% block title %} Home {% endblock %} - Retro Video Game Wiki ✰</h2>
+    </center> 
+    <meta charset = "UTF-8">
+    <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
+    <link rel = "stylesheet" href = "/static/main.css" />
+    <link rel = "stylesheet" href = "/static/transitions.css" />
+    <script src="/static/main.js"></script>    
+</head>
+    
+    <div class = "transition transition-3 is-active"></div>
+
+    {% block content %}
+    <p>       
+        <center>Welcome to our page!</center>
+    </p>
+
+    <center>
+        <img src="RetroVideoGames.jpg" alt="Picture of retro video games and consoles" width="1050" height="500"> 
+    </center>
+
+
+    {% endblock %}
+    
+</body>
+
+</html>

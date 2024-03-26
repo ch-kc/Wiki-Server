@@ -1,0 +1,17 @@
+{% extends "main.html" %}
+
+{% block title %}
+Index
+{% endblock %}
+
+{% block content %}
+<h3>Pages included in this Wiki:</h3>
+
+{% for page in page_names %}
+    <li>
+        <a href = "/pages/{{page}}">{{page.replace(".txt", "").replace("-", " ").replace("_", " ")}}</a>
+    </li>
+{% endfor %}
+
+
+{% endblock %}
